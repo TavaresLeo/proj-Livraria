@@ -1,400 +1,473 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
-    <title>Bootstrap Example</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" sizes="32x32"
+            href="/favicon-32x32.png">
+        <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css"
+            rel="stylesheet">
+            <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+            <link rel="manifest" href="/img/favicon/manifest.json">
 
-    <title>Primeiro Trabalho</title>
+        <title>Bootstrap Example</title>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="css/style.css">
 
-</head>
-<body>
-    <header class="py-1 bg-dark">
-        <h6 class="text-center text-light ">Aceitamos todas as formas de pagamento: Pix, Crédito, Débito</h6>
-    </header>
-    <nav class="navbar navbar-expand-lg bg-warning py-4" id="navbar">
-        <div class="container-fluid ms-5">
-            <a class="navbar-brand text-light" id="logo" href="#"><b>Livraria</b></a>
-            <button class="navbar-toggler bg-light" type="button" id="menu" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-5">
-                <li class="nav-item">
-                <a class="nav-link active text-light" aria-current="page" href="#"><b>Home</b></a>
-                </li>
-                <li class="nav-item text-light">
-                <a class="nav-link text-light" href="#"><b>Novidades</b></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-light" href="#"><b>Contato</b></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link text-light" href="#"><b>Sobre</b></a>
-                </li>
-            </ul>
+        <title>Primeiro Trabalho</title>
+
+    </head>
+    <body>
+        <header class="py-1 bg-dark">
+            <h6 class="text-center text-light pt-2">Aceitamos todas as formas de
+                pagamento: Pix, Crédito, Débito</h6>
+        </header>
+        <nav class="navbar navbar-expand-lg bg-warning py-4" id="navbar">
+            <div class="container-fluid ms-5">
+                <a class="navbar-brand text-light" id="logo" href="#"><b>Livraria</b></a>
+                <button class="navbar-toggler bg-light" type="button" id="menu"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-5">
+                        <li class="nav-item">
+                            <a class="nav-link active text-light"
+                                aria-current="page" href="#"><b>Home</b></a>
+                        </li>
+                        <li class="nav-item text-light">
+                            <a class="nav-link text-light" href="#"><b>Novidades</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#"><b>Contato</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#"><b>Sobre</b></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="container-fluid d-lg-block d-sm-none me-4" id="search">
-            <form class="d-flex ms-5" role="search">
-                <input class="form-control me-3" type="search" placeholder="Busca" aria-label="Search">
-                <button class="btn btn-outline bg-light" type="submit">Buscar</button>
-            </form>
-        </div>
-    </nav>  
+            <div class="container-fluid d-lg-block d-sm-none me-4" id="search">
+                <form class="d-flex me-5" role="search">
+                    <input class="form-control me-3" type="search"
+                        placeholder="Busca" aria-label="Search">
+                    <button class="btn btn-outline bg-light" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
 
-    <div class="subtitle">
-        <h6 class="title text-center w-100 text-light bg-dark mt-2 py-2">Utilize o cupom dos nossos afiliados e ganhe desconto nas suas compras.</h6>
-    </div>
-
-    <div class="carousel slide" data-bs-ride="carousel" id="ads">
-        <div class="carousel-indicators">
-            <button class="active" data-bs-target="#ads" 
-            data-bs-slide-to="0"></button>
-            <button class="" data-bs-target="#ads" 
-            data-bs-slide-to="1"></button>
-            <button class="" data-bs-target="#ads" 
-            data-bs-slide-to="2"></button>
-            <button class="" data-bs-target="#ads" 
-            data-bs-slide-to="3"></button>
+        <div class="subtitle">
+            <h6 class="title text-center w-100 text-light bg-dark mt-2 py-2">Utilize
+                o cupom dos nossos afiliados e ganhe desconto nas suas compras.</h6>
         </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="2000">
-                <img src="img/imagem1.jpg" alt="" 
-                class="d-block w-100">
-                <!-- <div class="carousel-caption d-none d-md-block">
+
+        <div class="carousel slide" data-bs-ride="carousel" id="ads">
+            <div class="carousel-indicators">
+                <button class="active" data-bs-target="#ads"
+                    data-bs-slide-to="0"></button>
+                <button class="" data-bs-target="#ads"
+                    data-bs-slide-to="1"></button>
+                <button class="" data-bs-target="#ads"
+                    data-bs-slide-to="2"></button>
+                <button class="" data-bs-target="#ads"
+                    data-bs-slide-to="3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="2000">
+                    <img src="img/imagem1.jpg" alt=""
+                        class="d-block w-100">
+                    <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>Título do Slide 1</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus inventore in dicta delectus, distinctio asperiores, odio esse temporibus aliquam, corrupti laborum dolore consequatur nesciunt quod quidem? Accusantium aspernatur id provident.</p>
                 </div> -->
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="img/imagem2.jpg" alt="" 
-                class="d-block w-100">
-                <!-- <div class="carousel-caption d-none d-md-block">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="img/imagem2.jpg" alt=""
+                        class="d-block w-100">
+                    <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>Título do Slide 2</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus inventore in dicta delectus, distinctio asperiores, odio esse temporibus aliquam, corrupti laborum dolore consequatur nesciunt quod quidem? Accusantium aspernatur id provident.</p>
                 </div> -->
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="img/imagem3.jpg" alt="" 
-                class="d-block w-100">
-                <!-- <div class="carousel-caption d-none d-md-block">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="img/imagem3.jpg" alt=""
+                        class="d-block w-100">
+                    <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>Título do Slide 3</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus inventore in dicta delectus, distinctio asperiores, odio esse temporibus aliquam, corrupti laborum dolore consequatur nesciunt quod quidem? Accusantium aspernatur id provident.</p>
                 </div> -->
-            </div>
-            <div class="carousel-item" data-bs-interval="2000">
-                <img src="img/imagem4.jpg" alt="" 
-                class="d-block w-100">
-                <!-- <div class="carousel-caption d-none d-md-block">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                    <img src="img/imagem4.jpg" alt=""
+                        class="d-block w-100">
+                    <!-- <div class="carousel-caption d-none d-md-block">
                     <h5>Título do Slide 3</h5>
                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Natus inventore in dicta delectus, distinctio asperiores, odio esse temporibus aliquam, corrupti laborum dolore consequatur nesciunt quod quidem? Accusantium aspernatur id provident.</p>
                 </div> -->
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" data-bs-target="#ads"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" data-bs-target="#ads"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+        <div class="container py-5">
+            <div class="row g-3 py-5">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <a href="/produto.html">
+                            <img src="img/cafe-com-Deus.jpg"
+                                class="card-img-top">
+                        </a>
+                        <div class="card-header">
+                            R$ 84,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Café com Deus</b></h5>
+                            <p class="card-text truncar-3l">
+                                Um pouco da vivência de um café com a leitura da
+                                palavra de Deus.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/calice-de-fogo.jpg" class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 54,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Harry Potter</b></h5>
+                            <p class="card-text truncar-3l">
+                                2º livro da franquia, com novas aventuras e
+                                descobertas incríveis.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/como-fazer-amigos.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 34,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Como fazer amigos</b></h5>
+                            <p class="card-text truncar-3l">
+                                Aprenda a influenciar pessoas.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2 d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart-fill" style="font-size:
+                                24px; line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/de-maos-dadas.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 39,90
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Heartstupper</b></h5>
+                            <p class="card-text truncar-3l">
+                               Um casal de namorados em busca de amadurecimento.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/deixa-de-se-pobre!.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 48,60
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Deixe de ser pobre</b></h5>
+                            <p class="card-text truncar-3l">
+                                Dicas para melhorar a sua vida financeira.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/fahrenheit.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 4,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Fahrenheit</b></h5>
+                            <p class="card-text truncar-3l">
+                                Banana prata da melhor qualidade possível,
+                                direto do produtor rural para a sua mesa.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/garota-do-lago.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 78,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>A Garota do Lago</b></h5>
+                            <p class="card-text truncar-3l">
+                                Banana prata da melhor qualidade possível,
+                                direto do produtor rural para a sua mesa.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/harry-potter.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 56,90
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Harry Potter</b></h5>
+                            <p class="card-text truncar-3l">
+                                Mais um livro de muita emoção e aventura que nos deixará 
+                                presos no livro.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart-fill" style="font-size:
+                                24px; line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/mais-esperto.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 43,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>+Esperto que...</b></h5>
+                            <p class="card-text truncar-3l">
+                                A história de um homem conversando com seu 
+                                diabo interior tentando 
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/inimigo-novo.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 38,30
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Um inimigo do ...</b></h5>
+                            <p class="card-text truncar-3l">
+                               Livro que fala sobre os direitos dos cidadões  e 
+                               seus governantes.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/inperfeitos.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 53,00
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Imperfeitos</b></h5>
+                            <p class="card-text truncar-3l">
+                               Retratando a realidade de pessoas inperfeitas querendo fazer as coisas
+                               perfeitas.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
+                    <div class="card text-center bg-light">
+                        <a href="#" class="position-absolute end-0 p-2
+                            text-danger">
+                            <i class="bi-suit-heart" style="font-size: 24px;
+                                line-height: 24px;"></i>
+                        </a>
+                        <img src="/img/menino-maluquinho.jpg"
+                            class="card-img-top p-3">
+                        <div class="card-header">
+                            R$ 34,50
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title"><b>Menino Malu...</b></h5>
+                            <p class="card-text truncar-3l">
+                                As Aventuras de um menino e sua panela na cabeça.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="carrinho.html" class="btn btn-warning mt-2
+                                d-block">
+                                Adicionar ao Carrinho
+                            </a>
+                          
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <button class="carousel-control-prev" data-bs-target="#ads" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" data-bs-target="#ads" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
 
-<div class="container py-5">   
-    <div class="row g-3 py-5">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <a href="/produto.html">
-                    <img src="img/cafe-com-Deus.jpg" class="card-img-top">
-                </a>
-                <div class="card-header">
-                    R$ 84,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title"><b>Café com Deus pai</b></h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-warning mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000002.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000003.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-light disabled mt-2 d-block">
-                        <small>Reabastecendo Estoque</small>
-                    </a>
-                    <small class="text-danger">
-                        <b>Produto Esgotado</b>
-                    </small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000004.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000005.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000006.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000007.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000008.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart-fill" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000009.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000010.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000011.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <div class="card text-center bg-light">
-                <a href="#" class="position-absolute end-0 p-2 text-danger">
-                    <i class="bi-suit-heart" style="font-size: 24px; line-height: 24px;"></i>
-                </a>
-                <img src="/img/produtos/000012.jpg" class="card-img-top">
-                <div class="card-header">
-                    R$ 4,50
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Banana Prata</h5>
-                    <p class="card-text truncar-3l">
-                        Banana prata da melhor qualidade possível, direto do produtor rural para a sua mesa.
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <a href="carrinho.html" class="btn btn-danger mt-2 d-block">
-                        Adicionar ao Carrinho
-                    </a>
-                    <small class="text-success">320,5kg em estoque</small>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-    <footer class="p-2 bg-warning text-dark text-center fixed-bottom">
-        Todos os direitos reservados. 
-    </footer>
-</body>
+        <footer class="p-2 bg-warning text-dark text-center fixed-bottom">
+            Todos os direitos reservados.
+        </footer>
+    </body>
 </html>
