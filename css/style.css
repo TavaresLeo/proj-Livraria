@@ -2,7 +2,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    min-width: 372px;
+    min-width: 370px;
 }
 
 h4 {
@@ -27,6 +27,14 @@ li:hover {
     background: rgba(255, 225, 0, 0.809)
 }
 
+h5 {
+    font-size: 18px;
+}
+
+p .card-text {
+    font-size: 14px;
+}
+
 p.truncar-3l {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -35,13 +43,32 @@ p.truncar-3l {
     text-overflow: ellipsis;
 }
 
-.carousel-item {
-    height: 400px;
+#novidades {
+    background-color: #ccc;
+    height: 300px;
+    padding-top: 10px;
+}
+
+#btnCad {
+    width: 200px;
+}
+
+.bg-light {
+    height: 100%;
 }
 
 @media screen and (max-width: 800px){ 
     #search {
         display: none;
+    }
+    .container {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        margin-top: 50px;
     }
 
 }
