@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     min-width: 370px;
+    width: 100vw;
 }
 
 h4 {
@@ -44,17 +45,46 @@ p.truncar-3l {
 }
 
 #novidades {
-    background-color: #ccc;
     height: 300px;
     padding-top: 10px;
+    background-color: rgba(204, 204, 204, 0.218);
 }
 
 #btnCad {
-    width: 200px;
+    width: 220px;
 }
 
 .bg-light {
     height: 100%;
+}
+
+footer {
+    height: 300px;
+    width: 100%;
+}
+
+.text-light {
+    line-height: 2.5;
+}
+
+@media  screen and (max-width:472px) {
+    footer {
+        max-height: 600px;
+        width: 100%;
+        margin: 0;
+    }
+
+    #novidades {
+        height: 350px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    footer {
+        height: auto;
+        justify-content: center;
+    }
 }
 
 @media screen and (max-width: 800px){ 
@@ -62,7 +92,8 @@ p.truncar-3l {
         display: none;
     }
     .container {
-        width: 80vw;
+        width: 100vw;
+       
     }
 }
 
