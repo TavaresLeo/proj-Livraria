@@ -29,7 +29,7 @@ function carregarNavbar() {
                         <li class="nav-item"><a class="nav-link text-light fw-bold" href="/index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link text-light fw-bold" href="#">Lançamentos</a></li>
                         <li class="nav-item"><a class="nav-link text-light fw-bold" href="/nossas_lojas.html">Nossas Lojas</a></li>
-                        <li class="nav-item"><a class="nav-link text-light fw-bold" href="/fale_conosco.html">Contato</a></li>
+                        <li class="nav-item"><a class="nav-link text-light fw-bold" href="fale_conosco.html">Contato</a></li>
                          <li class="nav-item"><a class="nav-link text-light fw-bold" href="/sobre_livraria.html">Sobre</a></li>
                     </ul>
                 </div>
