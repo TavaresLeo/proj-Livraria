@@ -228,4 +228,58 @@ function carregarProdutos() {
 document.addEventListener("DOMContentLoaded", () => {
     // ... (suas funções anteriores de Navbar e Footer continuam aqui)
     carregarProdutos();
+
+    // --- LÓGICA DA PÁGINA DE CONTATO ---
+
+function configurarFormularioContato() {
+    const formContato = document.getElementById("form-contato");
+    
+    // Só executa se o formulário existir na página atual
+    if (formContato) {
+        formContato.addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o recarregamento da página
+
+            // Simulação de envio (aqui entraria a conexão com Backend)
+            const botao = formContato.querySelector('button[type="submit"]');
+            const textoOriginal = botao.innerText;
+
+            // Muda o botão para "Enviando..."
+            botao.disabled = true;
+            botao.innerText = "Enviando...";
+
+            setTimeout(() => {
+                // Mostra mensagem de sucesso
+                document.getElementById("msg-sucesso").classList.remove("d-none");
+                
+                // Reseta o formulário
+                formContato.reset();
+
+                // Volta o botão ao normal
+                botao.disabled = false;
+                botao.innerText = textoOriginal;
+
+                // Esconde a mensagem de sucesso após 5 segundos
+                setTimeout(() => {
+                    document.getElementById("msg-sucesso").classList.add("d-none");
+                }, 5000);
+
+            }, 1500); // Simula 1.5 segundos de "rede"
+        });
+    }
+}
+
+// Atualize o event listener principal para incluir a nova função
+// Substitua o final do seu arquivo script.js por isso:
+document.addEventListener("DOMContentLoaded", () => {
+    carregarNavbar();
+    carregarFooter();
+    
+    // Tenta carregar os produtos (se estiver na home)
+    if (typeof carregarProdutos === "function") {
+        carregarProdutos();
+    }
+
+    // Configura o formulário de contato (se estiver na página de contato)
+    configurarFormularioContato();
+});
 });
