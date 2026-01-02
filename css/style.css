@@ -209,6 +209,24 @@ footer {
     }
 
 }
+/* Efeito suave ao passar o mouse no card */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px); /* Sobe um pouquinho */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; /* Sombra mais forte */
+}
+
+/* Garante que descrições longas não quebrem o card (limita a 3 linhas) */
+.truncar-3l {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 @media screen and (max-width: 1150px) {
     #search {
         display: none;
