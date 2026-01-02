@@ -228,7 +228,7 @@ function carregarProdutos() {
 document.addEventListener("DOMContentLoaded", () => {
     // ... (suas funções anteriores de Navbar e Footer continuam aqui)
     carregarProdutos();
-
+});
     // --- LÓGICA DA PÁGINA DE CONTATO ---
 
 function configurarFormularioContato() {
@@ -282,4 +282,4 @@ document.addEventListener("DOMContentLoaded", () => {
     // Configura o formulário de contato (se estiver na página de contato)
     configurarFormularioContato();
 });
-});
+
