@@ -1,5 +1,4 @@
 // Arquivo: js/script.js
-
 document.addEventListener("DOMContentLoaded", () => {
     carregarNavbar();
     carregarFooter();
@@ -108,4 +107,125 @@ function destacarPaginaAtual() {
             link.style.textDecoration = 'underline';
         }
     });
+
+    
 }
+
+// --- DADOS DOS PRODUTOS (LIVROS) ---
+const livros = [
+    {
+        id: 1,
+        titulo: "Café com Deus",
+        preco: "R$ 84,50",
+        imagem: "img/cafe-com-Deus.jpg",
+        descricao: "Um momento diário de renovação espiritual e conexão profunda com o divino através da leitura.",
+        link: "carrinho.html"
+    },
+    {
+        id: 2,
+        titulo: "Harry Potter e o Cálice de Fogo",
+        preco: "R$ 54,50",
+        imagem: "img/calice-de-fogo.jpg",
+        descricao: "O quarto ano em Hogwarts traz desafios mortais e o retorno de forças sombrias.",
+        link: "carrinho.html"
+    },
+    {
+        id: 3,
+        titulo: "Como Fazer Amigos",
+        preco: "R$ 34,50",
+        imagem: "img/como-fazer-amigos.jpg",
+        descricao: "O guia clássico e definitivo sobre como se relacionar, influenciar pessoas e obter sucesso.",
+        link: "carrinho.html"
+    },
+    {
+        id: 4,
+        titulo: "Heartstopper",
+        preco: "R$ 39,90",
+        imagem: "img/de-maos-dadas.jpg",
+        descricao: "Uma história doce e emocionante sobre amizade, descobertas e o primeiro amor.",
+        link: "carrinho.html"
+    },
+    {
+        id: 5,
+        titulo: "Deixe de Ser Pobre",
+        preco: "R$ 48,60",
+        imagem: "img/deixa-de-se-pobre!.jpg",
+        descricao: "Estratégias diretas para mudar sua mentalidade financeira e começar a acumular riqueza.",
+        link: "carrinho.html"
+    },
+    {
+        id: 6,
+        titulo: "Fahrenheit 451",
+        preco: "R$ 41,50",
+        imagem: "img/fahrenheit.jpg",
+        descricao: "Um futuro distópico onde livros são proibidos e bombeiros têm a missão de queimá-los.",
+        link: "carrinho.html"
+    },
+    {
+        id: 7,
+        titulo: "A Garota do Lago",
+        preco: "R$ 29,90",
+        imagem: "img/garota-do-lago.jpg",
+        descricao: "Um thriller investigativo cheio de reviravoltas sobre segredos sombrios em uma cidade pequena.",
+        link: "carrinho.html"
+    },
+    {
+        id: 8,
+        titulo: "Mais Esperto que o Diabo",
+        preco: "R$ 43,50",
+        imagem: "img/mais-esperto.jpg",
+        descricao: "Uma entrevista exclusiva com o Diabo para descobrir como superar medos e procrastinação.",
+        link: "carrinho.html"
+    }
+];
+
+// --- FUNÇÃO PARA GERAR OS CARDS NA TELA ---
+function carregarProdutos() {
+    const container = document.getElementById("produtos-container");
+    
+    // Verifica se o container existe (só vai existir na home)
+    if (!container) return;
+
+    let htmlContent = "";
+
+    livros.forEach(livro => {
+        htmlContent += `
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+            <div class="card text-center bg-light h-100 shadow-sm hover-card">
+                <a href="#" class="position-absolute end-0 p-3 text-danger" title="Favoritar">
+                    <i class="bi bi-suit-heart" style="font-size: 24px;"></i>
+                </a>
+                
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <a href="/produto.html?id=${livro.id}">
+                        <img src="${livro.imagem}" class="card-img-top p-3" alt="Capa do livro ${livro.titulo}" style="max-height: 100%; width: auto;">
+                    </a>
+                </div>
+
+                <div class="card-header fw-bold text-success">
+                    ${livro.preco}
+                </div>
+                
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title"><b>${livro.titulo}</b></h5>
+                    <p class="card-text text-muted small flex-grow-1">${livro.descricao}</p>
+                </div>
+                
+                <div class="card-footer bg-white border-top-0 pb-3">
+                    <a href="${livro.link}" class="btn btn-warning w-100 fw-bold">
+                        Adicionar ao Carrinho
+                    </a>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+
+    container.innerHTML = htmlContent;
+}
+
+// Adiciona a função de produtos ao carregamento da página
+document.addEventListener("DOMContentLoaded", () => {
+    // ... (suas funções anteriores de Navbar e Footer continuam aqui)
+    carregarProdutos();
+});
