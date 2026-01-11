@@ -18,13 +18,14 @@
             <p class="text-muted">Estamos aqui para ajudar! Mande sua dúvida, sugestão ou reclamação.</p>
         </div>
 
-        <div class="row g-5">
-            <div class="col-12 col-md-7">
-                <div class="card border-0 shadow-sm p-4">
+        <div class="row g-4">
+            
+            <div class="col-12 col-lg-7">
+                <div class="card border-0 shadow-sm p-4 h-100">
                     <h4 class="mb-4">Envie uma mensagem</h4>
                     
                     <div id="msg-sucesso" class="alert alert-success d-none" role="alert">
-                        <i class="bi bi-check-circle-fill me-2"></i>Mensagem enviada com sucesso! Responderemos em breve.
+                        <i class="bi bi-check-circle-fill me-2"></i>Mensagem enviada com sucesso!
                     </div>
 
                     <form id="form-contato">
@@ -44,12 +45,11 @@
                                     <option value="pedidos">Dúvida sobre Pedido</option>
                                     <option value="trocas">Trocas e Devoluções</option>
                                     <option value="sugestao">Sugestão</option>
-                                    <option value="outros">Outros</option>
                                 </select>
                             </div>
                             <div class="col-12">
                                 <label for="mensagem" class="form-label">Mensagem</label>
-                                <textarea class="form-control" id="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                                <textarea class="form-control" id="mensagem" rows="5" placeholder="Escreva aqui..." required></textarea>
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-warning w-100 fw-bold">Enviar Mensagem</button>
@@ -59,38 +59,58 @@
                 </div>
             </div>
 
-            <div class="col-12 col-md-5">
-                <div class="mb-4">
-                    <h4>Nossos Contatos</h4>
-                    <ul class="list-unstyled mt-3">
-                        <li class="mb-3 d-flex align-items-start">
-                            <i class="bi bi-geo-alt-fill text-warning fs-5 me-3"></i>
-                            <div>
-                                <strong>Endereço:</strong><br>
-                                Av. Paulista, 1000 - Bela Vista<br>
-                                São Paulo - SP, 01310-100
+           <div class="col-12 col-lg-5">
+                <div class="h-100 p-4 border rounded bg-light shadow-sm">
+                    <h4 class="mb-4">Nossos Contatos</h4>
+                    
+                    <div class="d-flex flex-column gap-3">
+                        
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 mt-1">
+                                <i class="bi bi-geo-alt-fill text-warning fs-4"></i>
                             </div>
-                        </li>
-                        <li class="mb-3 d-flex align-items-center">
-                            <i class="bi bi-telephone-fill text-warning fs-5 me-3"></i>
                             <div>
-                                <strong>Telefone:</strong><br>
-                                <a href="tel:+5511999999999" class="text-decoration-none text-dark">(11) 99999-9999</a>
+                                <h6 class="fw-bold mb-1">Endereço:</h6>
+                                <p class="mb-0 text-muted lh-sm">
+                                    Av. Paulista, 1000 - Bela Vista<br>
+                                    São Paulo - SP, 01310-100
+                                </p>
                             </div>
-                        </li>
-                        <li class="mb-3 d-flex align-items-center">
-                            <i class="bi bi-envelope-fill text-warning fs-5 me-3"></i>
-                            <div>
-                                <strong>E-mail:</strong><br>
-                                <a href="mailto:contato@livraria.com" class="text-decoration-none text-dark">contato@livraria.com</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
 
-                <div class="ratio ratio-4x3 border rounded overflow-hidden shadow-sm">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197577536969!2d-46.65429692376288!3d-23.561349561591636!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1690000000000!5m2!1spt-BR!2sbr" 
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 mt-1">
+                                <i class="bi bi-telephone-fill text-warning fs-4"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold mb-1">Telefone:</h6>
+                                <p class="mb-0 lh-sm">
+                                    <a href="tel:+5511999999999" class="text-decoration-none text-muted">
+                                        (11) 99999-9999
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-start">
+                            <div class="me-3 mt-1">
+                                <i class="bi bi-envelope-fill text-warning fs-4"></i>
+                            </div>
+                            <div class="w-100"> <h6 class="fw-bold mb-1">E-mail:</h6>
+                                <p class="mb-0 lh-sm">
+                                    <a href="mailto:contato@livraria.com" class="text-decoration-none text-muted text-break">
+                                        contato@livraria.com
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="ratio ratio-16x9 border rounded overflow-hidden mt-4">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.145607348633!2d-46.65495528447576!3d-23.563216367546055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%201000%20-%20Bela%20Vista%2C%20S%C3%A3o%20Paulo%20-%20SP%2C%2001310-100!5e0!3m2!1spt-BR!2sbr!4v1693333333333!5m2!1spt-BR!2sbr" 
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
