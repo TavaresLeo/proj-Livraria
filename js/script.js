@@ -325,6 +325,79 @@ function configurarFormularioContato() {
 }
 
 // =========================================================================
+// 6. FUNÇÃO CARRINHO DE COMPRAS
+// =========================================================================
+function carregarCarrinho() {
+    const container = document.getElementById("itens-carrinho");
+    if (!container) return; // Se não estiver na página do carrinho, para.
+
+    // --- SIMULAÇÃO: Vamos fingir que o usuário comprou o livro 1 e 2 ---
+    // (Mais tarde faremos isso funcionar com localStorage real)
+    const itensNoCarrinho = [
+        { produto: livros[0], quantidade: 1 }, // Café com Deus Pai
+        { produto: livros[1], quantidade: 2 }  // Harry Potter (2 unidades)
+    ];
+
+    let htmlItens = "";
+    let totalGeral = 0;
+
+    // Se o carrinho estiver vazio
+    if (itensNoCarrinho.length === 0) {
+        container.innerHTML = `<div class="alert alert-warning">Seu carrinho está vazio.</div>`;
+        return;
+    }
+
+    itensNoCarrinho.forEach(item => {
+        const livro = item.produto;
+        
+        // Lógica para converter "R$ 84,50" em número (84.50) para somar
+        const precoNumerico = parseFloat(livro.preco.replace("R$", "").replace(",", ".").trim());
+        const subtotalItem = precoNumerico * item.quantidade;
+        totalGeral += subtotalItem;
+
+        htmlItens += `
+        <div class="card border shadow-sm">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-3 col-md-2">
+                        <img src="${livro.imagem}" class="img-fluid rounded" alt="${livro.titulo}">
+                    </div>
+                    
+                    <div class="col-9 col-md-4">
+                        <h6 class="fw-bold mb-1">${livro.titulo}</h6>
+                        <small class="text-muted">Unitário: ${livro.preco}</small>
+                    </div>
+
+                    <div class="col-6 col-md-3 mt-3 mt-md-0">
+                        <div class="input-group input-group-sm">
+                            <button class="btn btn-outline-secondary" type="button">-</button>
+                            <input type="text" class="form-control text-center" value="${item.quantidade}">
+                            <button class="btn btn-outline-secondary" type="button">+</button>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-md-3 mt-3 mt-md-0 text-end">
+                        <div class="fw-bold mb-2">R$ ${subtotalItem.toFixed(2).replace(".", ",")}</div>
+                        <button class="btn btn-sm btn-outline-danger border-0">
+                            <i class="bi bi-trash"></i> Remover
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        `;
+    });
+
+    // Renderiza a lista de itens
+    container.innerHTML = htmlItens;
+
+    // Atualiza o Resumo de Valores (Coluna da Direita)
+    const valorFormatado = "R$ " + totalGeral.toFixed(2).replace(".", ",");
+    document.getElementById("valor-subtotal").innerText = valorFormatado;
+    document.getElementById("valor-total").innerText = valorFormatado;
+}
+
+// =========================================================================
 // UTILITÁRIOS
 // =========================================================================
 function destacarPaginaAtual() {
@@ -361,5 +434,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // 4. Verifica se está na página de Contato
     if (document.getElementById("form-contato")) {
         configurarFormularioContato();
+    }
+
+    // 5. Verifica se está na página do Carrinho
+    if (document.getElementById("itens-carrinho")) {
+        carregarCarrinho();
     }
 });
