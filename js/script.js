@@ -1,5 +1,5 @@
 // =========================================================================
-// BANCO DE DADOS (Simulação)
+// 1. DADOS DOS PRODUTOS (Simulando um Banco de Dados)
 // =========================================================================
 const livros = [
     {
@@ -7,69 +7,61 @@ const livros = [
         titulo: "Café com Deus Pai",
         preco: "R$ 84,50",
         imagem: "img/cafe-com-Deus.jpg",
-        descricao: "Um momento diário de renovação espiritual e conexão profunda com o divino através da leitura.",
-        link: "carrinho.html"
+        descricao: "Um momento diário de renovação espiritual e conexão profunda com o divino através da leitura."
     },
     {
         id: 2,
         titulo: "Harry Potter e o Cálice de Fogo",
         preco: "R$ 54,50",
         imagem: "img/calice-de-fogo.jpg",
-        descricao: "O quarto ano em Hogwarts traz desafios mortais e o retorno de forças sombrias.",
-        link: "carrinho.html"
+        descricao: "O quarto ano em Hogwarts traz desafios mortais e o retorno de forças sombrias."
     },
     {
         id: 3,
         titulo: "Como Fazer Amigos",
         preco: "R$ 34,50",
         imagem: "img/como-fazer-amigos.jpg",
-        descricao: "O guia clássico e definitivo sobre como se relacionar, influenciar pessoas e obter sucesso.",
-        link: "carrinho.html"
+        descricao: "O guia clássico e definitivo sobre como se relacionar, influenciar pessoas e obter sucesso."
     },
     {
         id: 4,
         titulo: "Heartstopper",
         preco: "R$ 39,90",
         imagem: "img/de-maos-dadas.jpg",
-        descricao: "Uma história doce e emocionante sobre amizade, descobertas e o primeiro amor.",
-        link: "carrinho.html"
+        descricao: "Uma história doce e emocionante sobre amizade, descobertas e o primeiro amor."
     },
     {
         id: 5,
         titulo: "Deixe de Ser Pobre",
         preco: "R$ 48,60",
         imagem: "img/deixa-de-se-pobre!.jpg",
-        descricao: "Estratégias diretas para mudar sua mentalidade financeira e começar a acumular riqueza.",
-        link: "carrinho.html"
+        descricao: "Estratégias diretas para mudar sua mentalidade financeira e começar a acumular riqueza."
     },
     {
         id: 6,
         titulo: "Fahrenheit 451",
         preco: "R$ 41,50",
         imagem: "img/fahrenheit.jpg",
-        descricao: "Um futuro distópico onde livros são proibidos e bombeiros têm a missão de queimá-los.",
-        link: "carrinho.html"
+        descricao: "Um futuro distópico onde livros são proibidos e bombeiros têm a missão de queimá-los."
     },
     {
         id: 7,
         titulo: "A Garota do Lago",
         preco: "R$ 29,90",
         imagem: "img/garota-do-lago.jpg",
-        descricao: "Um thriller investigativo cheio de reviravoltas sobre segredos sombrios em uma cidade pequena.",
-        link: "carrinho.html"
+        descricao: "Um thriller investigativo cheio de reviravoltas sobre segredos sombrios em uma cidade pequena."
     },
     {
         id: 8,
         titulo: "Mais Esperto que o Diabo",
         preco: "R$ 43,50",
         imagem: "img/mais-esperto.jpg",
-        descricao: "Uma entrevista exclusiva com o Diabo para descobrir como superar medos e procrastinação.",
-        link: "carrinho.html"
+        descricao: "Uma entrevista exclusiva com o Diabo para descobrir como superar medos e procrastinação."
     }
 ];
 
 // =========================================================================
-// 1. FUNÇÃO DA NAVBAR (Cabeçalho)
+// 2. FUNÇÃO DA NAVBAR (Cabeçalho)
 // =========================================================================
 function carregarNavbar() {
     const navbarContainer = document.getElementById("navbar-placeholder");
@@ -110,9 +102,11 @@ function carregarNavbar() {
 
                 <div class="d-flex align-items-center me-4 mt-2 mt-lg-0">
                     <a href="login.html" class="text-white me-3 fs-4" title="Login"><i class="bi bi-person-circle"></i></a>
+                    
                     <div class="position-relative">
                         <a href="carrinho.html" class="text-white fs-4" title="Carrinho"><i class="bi bi-cart3"></i></a>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem;">5</span>
+                        <span id="contador-carrinho" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;">
+                        </span>
                     </div>
                 </div>
             </div>
@@ -123,7 +117,7 @@ function carregarNavbar() {
 }
 
 // =========================================================================
-// 2. FUNÇÃO DO FOOTER (Rodapé)
+// 3. FUNÇÃO DO FOOTER (Rodapé)
 // =========================================================================
 function carregarFooter() {
     const footerContainer = document.getElementById("footer-placeholder");
@@ -168,12 +162,11 @@ function carregarFooter() {
 }
 
 // =========================================================================
-// 3. FUNÇÃO HOME (Carregar Lista de Produtos) - VERSÃO SEGURA
+// 4. FUNÇÃO HOME (Carregar Lista de Produtos)
 // =========================================================================
 function carregarProdutos() {
     const container = document.getElementById("produtos-container");
-    
-    if (!container) return; // Se não estiver na home, para.
+    if (!container) return; 
 
     let htmlContent = "";
 
@@ -181,17 +174,14 @@ function carregarProdutos() {
         htmlContent += `
         <div class="col-12 col-md-6 col-lg-4 col-xl-3">
             <div class="card text-center bg-light h-100 shadow-sm hover-card position-relative">
-                
                 <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <a href="produto.html?id=${livro.id}" class="d-block">
                         <img src="${livro.imagem}" class="card-img-top p-3" alt="${livro.titulo}" style="max-height: 100%; width: auto;">
                     </a>
                 </div>
-
                 <div class="card-header fw-bold text-success">
                     ${livro.preco}
                 </div>
-                
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">
                         <a href="produto.html?id=${livro.id}" class="text-decoration-none text-dark">
@@ -202,13 +192,11 @@ function carregarProdutos() {
                         ${livro.descricao}
                     </p>
                 </div>
-                
                 <div class="card-footer bg-white border-top-0 pb-3">
-                    <a href="carrinho.html" class="btn btn-warning w-100 fw-bold">
+                    <button onclick="adicionarAoCarrinho(${livro.id})" class="btn btn-warning w-100 fw-bold">
                         Adicionar ao Carrinho
-                    </a>
+                    </button>
                 </div>
-
             </div>
         </div>
         `;
@@ -218,17 +206,14 @@ function carregarProdutos() {
 }
 
 // =========================================================================
-// 4. FUNÇÃO DETALHES DO PRODUTO (Página produto.html)
+// 5. FUNÇÃO DETALHES DO PRODUTO (Página produto.html)
 // =========================================================================
 function carregarDetalhesProduto() {
     const container = document.getElementById("detalhe-produto");
     if (!container) return; 
 
-    // Pega o ID da URL (ex: produto.html?id=2)
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
-
-    // Busca o livro na lista
     const livro = livros.find(item => item.id == id);
 
     if (!livro) {
@@ -241,59 +226,161 @@ function carregarDetalhesProduto() {
         return;
     }
 
-    // Atualiza o Breadcrumb
     const breadcrumbTitulo = document.getElementById("breadcrumb-titulo");
     if(breadcrumbTitulo) breadcrumbTitulo.innerText = livro.titulo;
 
-    // Renderiza o produto
     container.innerHTML = `
         <div class="col-12 col-md-6 text-center">
             <div class="p-4 border rounded bg-light shadow-sm d-inline-block">
                 <img src="${livro.imagem}" class="img-fluid" style="max-height: 450px;" alt="${livro.titulo}">
             </div>
         </div>
-
         <div class="col-12 col-md-6">
             <h6 class="text-uppercase text-muted tracking-wide">Livro Físico</h6>
             <h1 class="display-5 fw-bold mb-3">${livro.titulo}</h1>
-            
             <div class="mb-3">
                 <span class="fs-2 fw-bold text-success">${livro.preco}</span>
                 <span class="text-muted ms-2"><small>em até 3x sem juros</small></span>
             </div>
-
             <p class="lead mb-4" style="font-size: 1.1rem;">
                 ${livro.descricao}
-                <br><br>
-                Sinopse completa: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
-
             <div class="d-grid gap-3 d-md-flex">
-                <button class="btn btn-warning btn-lg px-5 fw-bold text-dark flex-grow-1">
+                <button onclick="adicionarAoCarrinho(${livro.id})" class="btn btn-warning btn-lg px-5 fw-bold text-dark flex-grow-1">
                     <i class="bi bi-cart-plus me-2"></i> Adicionar ao Carrinho
                 </button>
                 <button class="btn btn-outline-dark btn-lg px-4" title="Favoritar">
                     <i class="bi bi-heart"></i>
                 </button>
             </div>
-
-            <div class="mt-5 border-top pt-4">
-                <div class="d-flex align-items-center mb-2">
-                    <i class="bi bi-truck text-muted me-2 fs-5"></i>
-                    <span>Entrega para todo o Brasil</span>
-                </div>
-                <div class="d-flex align-items-center">
-                    <i class="bi bi-shield-check text-muted me-2 fs-5"></i>
-                    <span>Compra 100% Segura</span>
-                </div>
-            </div>
         </div>
     `;
 }
 
 // =========================================================================
-// 5. FUNÇÃO PÁGINA DE CONTATO (fale_conosco.html)
+// 6. FUNÇÃO CARRINHO DE COMPRAS
+// =========================================================================
+function carregarCarrinho() {
+    const container = document.getElementById("itens-carrinho");
+    if (!container) return;
+
+    const carrinhoIds = JSON.parse(localStorage.getItem('carrinho')) || [];
+    
+    if (carrinhoIds.length === 0) {
+        container.innerHTML = `
+            <div class="alert alert-warning text-center py-5">
+                <h4>Seu carrinho está vazio :(</h4>
+                <a href="index.html" class="btn btn-dark mt-3">Ir as compras</a>
+            </div>`;
+        atualizarTotais(0);
+        return;
+    }
+
+    let htmlItens = "";
+    let totalGeral = 0;
+
+    carrinhoIds.forEach(item => {
+        const livroCompleto = livros.find(l => l.id == item.id);
+        
+        if (livroCompleto) {
+            const precoNumerico = parseFloat(livroCompleto.preco.replace("R$", "").replace(",", ".").trim());
+            const subtotalItem = precoNumerico * item.quantidade;
+            totalGeral += subtotalItem;
+
+            htmlItens += `
+            <div class="card border shadow-sm mb-3">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-3 col-md-2">
+                            <img src="${livroCompleto.imagem}" class="img-fluid rounded" alt="${livroCompleto.titulo}">
+                        </div>
+                        <div class="col-9 col-md-4">
+                            <h6 class="fw-bold mb-1">${livroCompleto.titulo}</h6>
+                            <small class="text-muted">Unitário: ${livroCompleto.preco}</small>
+                        </div>
+                        <div class="col-6 col-md-3 mt-3 mt-md-0">
+                            <div class="input-group input-group-sm">
+                                <button class="btn btn-outline-secondary" type="button">-</button>
+                                <input type="text" class="form-control text-center" value="${item.quantidade}" readonly>
+                                <button class="btn btn-outline-secondary" type="button">+</button>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 mt-3 mt-md-0 text-end">
+                            <div class="fw-bold mb-2">R$ ${subtotalItem.toFixed(2).replace(".", ",")}</div>
+                            <button onclick="removerDoCarrinho(${item.id})" class="btn btn-sm btn-outline-danger border-0">
+                                <i class="bi bi-trash"></i> Remover
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+    });
+
+    container.innerHTML = htmlItens;
+    atualizarTotais(totalGeral);
+}
+
+function atualizarTotais(valor) {
+    const elementoSub = document.getElementById("valor-subtotal");
+    const elementoTotal = document.getElementById("valor-total");
+    
+    if(elementoSub && elementoTotal) {
+        const valorFormatado = "R$ " + valor.toFixed(2).replace(".", ",");
+        elementoSub.innerText = valorFormatado;
+        elementoTotal.innerText = valorFormatado;
+    }
+}
+
+// =========================================================================
+// 7. LÓGICA DE GERENCIAMENTO DO CARRINHO
+// =========================================================================
+
+function adicionarAoCarrinho(idLivro) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const itemExistente = carrinho.find(item => item.id === idLivro);
+
+    if (itemExistente) {
+        itemExistente.quantidade += 1;
+    } else {
+        carrinho.push({ id: idLivro, quantidade: 1 });
+    }
+
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    
+    // Atualiza o badge imediatamente
+    atualizarBadgeCarrinho();
+    
+    alert("Produto adicionado ao carrinho!");
+}
+
+function removerDoCarrinho(id) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho = carrinho.filter(item => item.id !== id);
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    carregarCarrinho();
+    atualizarBadgeCarrinho();
+}
+
+function atualizarBadgeCarrinho() {
+    // 1. Pega os itens
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    // 2. Soma as quantidades
+    const totalItens = carrinho.reduce((total, item) => total + item.quantidade, 0);
+
+    // 3. Busca o elemento PELO ID (que agora existe na carregarNavbar)
+    const badge = document.getElementById("contador-carrinho");
+
+    if (badge) {
+        badge.innerText = totalItens;
+        // Se tem itens, mostra. Se é 0, esconde.
+        badge.style.display = totalItens > 0 ? 'inline-block' : 'none';
+    }
+}
+
+// =========================================================================
+// 8. FORMULÁRIO DE CONTATO
 // =========================================================================
 function configurarFormularioContato() {
     const formContato = document.getElementById("form-contato");
@@ -324,84 +411,8 @@ function configurarFormularioContato() {
     }
 }
 
-// =========================================================================
-// 6. FUNÇÃO CARRINHO DE COMPRAS
-// =========================================================================
-function carregarCarrinho() {
-    const container = document.getElementById("itens-carrinho");
-    if (!container) return; // Se não estiver na página do carrinho, para.
-
-    // --- SIMULAÇÃO: Vamos fingir que o usuário comprou o livro 1 e 2 ---
-    // (Mais tarde faremos isso funcionar com localStorage real)
-    const itensNoCarrinho = [
-        { produto: livros[0], quantidade: 1 }, // Café com Deus Pai
-        { produto: livros[1], quantidade: 2 }  // Harry Potter (2 unidades)
-    ];
-
-    let htmlItens = "";
-    let totalGeral = 0;
-
-    // Se o carrinho estiver vazio
-    if (itensNoCarrinho.length === 0) {
-        container.innerHTML = `<div class="alert alert-warning">Seu carrinho está vazio.</div>`;
-        return;
-    }
-
-    itensNoCarrinho.forEach(item => {
-        const livro = item.produto;
-        
-        // Lógica para converter "R$ 84,50" em número (84.50) para somar
-        const precoNumerico = parseFloat(livro.preco.replace("R$", "").replace(",", ".").trim());
-        const subtotalItem = precoNumerico * item.quantidade;
-        totalGeral += subtotalItem;
-
-        htmlItens += `
-        <div class="card border shadow-sm">
-            <div class="card-body">
-                <div class="row align-items-center">
-                    <div class="col-3 col-md-2">
-                        <img src="${livro.imagem}" class="img-fluid rounded" alt="${livro.titulo}">
-                    </div>
-                    
-                    <div class="col-9 col-md-4">
-                        <h6 class="fw-bold mb-1">${livro.titulo}</h6>
-                        <small class="text-muted">Unitário: ${livro.preco}</small>
-                    </div>
-
-                    <div class="col-6 col-md-3 mt-3 mt-md-0">
-                        <div class="input-group input-group-sm">
-                            <button class="btn btn-outline-secondary" type="button">-</button>
-                            <input type="text" class="form-control text-center" value="${item.quantidade}">
-                            <button class="btn btn-outline-secondary" type="button">+</button>
-                        </div>
-                    </div>
-
-                    <div class="col-6 col-md-3 mt-3 mt-md-0 text-end">
-                        <div class="fw-bold mb-2">R$ ${subtotalItem.toFixed(2).replace(".", ",")}</div>
-                        <button class="btn btn-sm btn-outline-danger border-0">
-                            <i class="bi bi-trash"></i> Remover
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        `;
-    });
-
-    // Renderiza a lista de itens
-    container.innerHTML = htmlItens;
-
-    // Atualiza o Resumo de Valores (Coluna da Direita)
-    const valorFormatado = "R$ " + totalGeral.toFixed(2).replace(".", ",");
-    document.getElementById("valor-subtotal").innerText = valorFormatado;
-    document.getElementById("valor-total").innerText = valorFormatado;
-}
-
-// =========================================================================
-// UTILITÁRIOS
-// =========================================================================
 function destacarPaginaAtual() {
-    const currentPath = window.location.pathname.split("/").pop(); // Pega só o nome do arquivo
+    const currentPath = window.location.pathname.split("/").pop();
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
@@ -412,32 +423,128 @@ function destacarPaginaAtual() {
         }
     });
 }
+// =========================================================================
+// 9. SISTEMA DE LOGIN (SIMULAÇÃO)
+// =========================================================================
+
+function configurarLogin() {
+    const formLogin = document.getElementById("form-login");
+    
+    if (formLogin) {
+        formLogin.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            // Pega o valor do email (Simulando que pegamos o nome do usuário)
+            const email = document.getElementById("email").value;
+            // Pega tudo antes do @ para usar como "Nome"
+            const nomeUsuario = email.split("@")[0]; 
+
+            // Salva no LocalStorage
+            localStorage.setItem("usuario_logado", nomeUsuario);
+
+            // Feedback e Redirecionamento
+            alert(`Bem-vindo, ${nomeUsuario}!`);
+            window.location.href = "index.html";
+        });
+    }
+}
+
+function verificarUsuarioLogado() {
+    // Essa função roda na Navbar para mudar o ícone
+    const usuario = localStorage.getItem("usuario_logado");
+    const areaLogin = document.querySelector('a[title="Login"]'); // Busca o link do ícone de usuário
+
+    if (usuario && areaLogin) {
+        // Se tem usuário, troca o ícone pelo nome e botão de sair
+        areaLogin.innerHTML = `
+            <div class="d-flex align-items-center gap-2">
+                <span class="fs-6 text-white">Olá, ${usuario}</span>
+                <i class="bi bi-box-arrow-right text-danger fs-6" style="cursor:pointer" onclick="fazerLogout(event)" title="Sair"></i>
+            </div>
+        `;
+        // Remove o link para não ir para a página de login de novo
+        areaLogin.removeAttribute("href");
+    }
+}
+
+function fazerLogout(event) {
+    event.preventDefault(); // Evita comportamento padrão
+    localStorage.removeItem("usuario_logado"); // Apaga o usuário
+    window.location.reload(); // Recarrega a página
+}
 
 // =========================================================================
-// INICIALIZAÇÃO (Roda quando a página carrega)
+// 10. SISTEMA DE CADASTRO (NOVO)
+// =========================================================================
+
+function configurarCadastro() {
+    const formCadastro = document.getElementById("form-cadastro");
+    
+    if (formCadastro) {
+        formCadastro.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            const nome = document.getElementById("nome-cadastro").value;
+            const senha = document.getElementById("senha-cadastro").value;
+            const confirmSenha = document.getElementById("senha-confirm").value;
+            const erroMsg = document.getElementById("erro-senha");
+
+            // 1. Validação simples de senha
+            if (senha !== confirmSenha) {
+                erroMsg.classList.remove("d-none"); // Mostra erro
+                return; // Para a execução
+            } else {
+                erroMsg.classList.add("d-none"); // Esconde erro
+            }
+
+            // 2. Simulação de Cadastro (Salva o nome como se tivesse logado)
+            localStorage.setItem("usuario_logado", nome.split(" ")[0]); // Pega só o primeiro nome
+
+            // 3. Feedback visual
+            const botao = formCadastro.querySelector('button[type="submit"]');
+            botao.disabled = true;
+            botao.innerText = "Criando conta...";
+
+            setTimeout(() => {
+                alert("Conta criada com sucesso! Bem-vindo(a).");
+                window.location.href = "index.html";
+            }, 1000);
+        });
+    }
+}
+
+// =========================================================================
+// 11. INICIALIZAÇÃO
 // =========================================================================
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Carrega Navbar e Footer em todas as páginas
     carregarNavbar();
     carregarFooter();
 
-    // 2. Verifica se está na Home (lista de produtos)
     if (document.getElementById("produtos-container")) {
         carregarProdutos();
     }
-
-    // 3. Verifica se está na página de Detalhes do Produto
     if (document.getElementById("detalhe-produto")) {
         carregarDetalhesProduto();
     }
-
-    // 4. Verifica se está na página de Contato
+    if (document.getElementById("itens-carrinho")) {
+        carregarCarrinho();
+    }
     if (document.getElementById("form-contato")) {
         configurarFormularioContato();
     }
 
-    // 5. Verifica se está na página do Carrinho
-    if (document.getElementById("itens-carrinho")) {
-        carregarCarrinho();
+    // Novas Funções de Login
+    if (document.getElementById("form-login")) {
+        configurarLogin();
     }
+
+    if (document.getElementById("form-cadastro")) {
+        configurarCadastro();
+    }
+    
+    // Pequeno atraso para garantir que a Navbar carregou antes de buscar o badge
+    setTimeout(() => {
+        atualizarBadgeCarrinho();
+        verificarUsuarioLogado();
+    }, 100);
 });
