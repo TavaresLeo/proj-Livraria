@@ -119,40 +119,55 @@ function carregarNavbar() {
 // =========================================================================
 // 3. FUNÇÃO DO FOOTER (Rodapé)
 // =========================================================================
+// =========================================================================
+// 3. FUNÇÃO DO FOOTER (Rodapé) - ATUALIZADA
+// =========================================================================
 function carregarFooter() {
     const footerContainer = document.getElementById("footer-placeholder");
 
     if (footerContainer) {
+        // Note que removemos 'bg-dark' e adicionamos 'footer-custom'
         footerContainer.innerHTML = `
-        <footer class="border-top text-muted bg-dark pt-5 pb-4 mt-5">
+        <footer class="footer-custom pt-5 pb-4 mt-5">
             <div class="container">
                 <div class="row">
+                    
                     <div class="col-12 col-md-4 text-center text-md-start mb-4">
-                        <b class="text-light d-block mb-2">Atendimento</b>
-                        <a href="politica_venda.html" class="text-decoration-none text-secondary d-block hover-link">Política de Vendas e Trocas</a>
-                        <a href="termos.html" class="text-decoration-none text-secondary d-block hover-link">Termos e Condições</a>
-                        <a href="fale_conosco.html" class="text-decoration-none text-secondary d-block hover-link">Fale Conosco</a>
+                        <b class="d-block">Atendimento</b>
+                        <a href="politica_venda.html" class="footer-link">Política de Vendas e Trocas</a>
+                        <a href="termos.html" class="footer-link">Termos e Condições</a>
+                        <a href="fale_conosco.html" class="footer-link">Fale Conosco</a>
                     </div>
+
                     <div class="col-12 col-md-4 text-center mb-4">
-                        <b class="text-light d-block mb-2">Institucional</b>
-                        <a href="sobre_livraria.html" class="text-decoration-none text-secondary d-block hover-link">Sobre a Livraria</a>
-                        <a href="nossas_lojas.html" class="text-decoration-none text-secondary d-block hover-link">Nossas Lojas</a>
-                        <a href="trabalhe_conosco.html" class="text-decoration-none text-secondary d-block hover-link">Trabalhe Conosco</a>
+                        <b class="d-block">Institucional</b>
+                        <a href="sobre_livraria.html" class="footer-link">Sobre a Livraria</a>
+                        <a href="nossas_lojas.html" class="footer-link">Nossas Lojas</a>
+                        <a href="trabalhe_conosco.html" class="footer-link">Trabalhe Conosco</a>
                     </div>
-                    <div class="col-12 col-md-4 text-center text-md-end">
-                        <b class="text-light d-block mb-2">Contato</b>
-                        <a href="fale_conosco.html" class="text-decoration-none text-secondary d-block hover-link mb-2">Formulário do Site</a>
-                        <a href="mailto:email@dominio.com" class="text-decoration-none text-secondary d-block mb-2">
-                            <i class="bi bi-envelope me-2"></i>email@dominio.com
-                        </a>
-                        <a href="tel:+5528999990000" class="text-decoration-none text-secondary d-block">
-                            <i class="bi bi-telephone me-2"></i>(28) 99999-0000
-                        </a>
+
+                    <div class="col-12 col-md-4 text-center text-md-end footer-contact">
+                        <b class="d-block">Contato</b>
+                        <a href="fale_conosco.html" class="footer-link mb-2">Formulário do Site</a>
+                        
+                        <div class="mb-2">
+                            <a href="mailto:email@dominio.com">
+                                <i class="bi bi-envelope me-2"></i>email@dominio.com
+                            </a>
+                        </div>
+                        <div>
+                            <a href="tel:+5528999990000">
+                                <i class="bi bi-telephone me-2"></i>(28) 99999-0000
+                            </a>
+                        </div>
                     </div>
                 </div>
+
                 <div class="row mt-4">
-                    <div class="col-12 text-center text-secondary">
-                        <small>&copy; 2025 Livraria. Todos os direitos reservados.</small>
+                    <div class="col-12">
+                        <div class="footer-divider pt-3 text-center">
+                            <small>&copy; 2025 Livraria. Todos os direitos reservados.</small>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -533,7 +548,155 @@ function configurarCadastro() {
 }
 
 // =========================================================================
-// 11. INICIALIZAÇÃO
+// 11. PÁGINA DE CHECKOUT (FINALIZAR COMPRA)
+// =========================================================================
+
+let valorFreteSelecionado = 0; // Variável global para guardar o frete
+
+function carregarCheckout() {
+    const listaResumo = document.getElementById("lista-resumo");
+    if (!listaResumo) return;
+
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    let subtotal = 0;
+    let html = "";
+
+    if (carrinho.length === 0) {
+        window.location.href = "index.html"; // Se não tem item, joga pra home
+        return;
+    }
+
+    // Desenha a lista de itens pequena
+    carrinho.forEach(item => {
+        const livro = livros.find(l => l.id == item.id);
+        if (livro) {
+            const preco = parseFloat(livro.preco.replace("R$", "").replace(",", ".").trim());
+            const totalItem = preco * item.quantidade;
+            subtotal += totalItem;
+
+            html += `
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+                <div>
+                    <h6 class="my-0">${livro.titulo}</h6>
+                    <small class="text-muted">Qtd: ${item.quantidade}</small>
+                </div>
+                <span class="text-muted">R$ ${totalItem.toFixed(2).replace(".", ",")}</span>
+            </li>`;
+        }
+    });
+
+    listaResumo.innerHTML = html;
+    
+    // Atualiza os valores na tela
+    document.getElementById("resumo-subtotal").innerText = "R$ " + subtotal.toFixed(2).replace(".", ",");
+    atualizarTotalFinal(subtotal);
+}
+
+// --- INTEGRAÇÃO COM API VIACEP ---
+function buscarCep() {
+    let cep = document.getElementById("cep").value.replace(/\D/g, ''); // Remove traços/pontos
+
+    if (cep.length !== 8) {
+        alert("CEP inválido. Digite 8 números.");
+        return;
+    }
+
+    // Chama a API
+    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(resposta => resposta.json())
+        .then(dados => {
+            if (dados.erro) {
+                document.getElementById("erro-cep").classList.remove("d-none");
+            } else {
+                document.getElementById("erro-cep").classList.add("d-none");
+                
+                // Preenche os campos automaticamente
+                document.getElementById("endereco").value = dados.logradouro;
+                document.getElementById("bairro").value = dados.bairro;
+                document.getElementById("cidade").value = dados.localidade;
+                document.getElementById("estado").value = dados.uf;
+                
+                // Foca no número para o usuário digitar
+                document.getElementById("numero").focus();
+
+                // Simula o cálculo de frete após achar o CEP
+                simularOpcoesDeFrete(dados.uf);
+            }
+        })
+        .catch(erro => {
+            console.error("Erro na API:", erro);
+            alert("Erro ao buscar CEP. Tente novamente.");
+        });
+}
+
+function simularOpcoesDeFrete(estado) {
+    const containerFrete = document.getElementById("opcoes-frete");
+    
+    // Simulação de preço baseada no estado (Sudeste mais barato, outros mais caros)
+    let precoSedex = 25.00;
+    let precoPac = 15.00;
+
+    if (['SP', 'RJ', 'MG', 'ES'].includes(estado)) {
+        precoSedex = 18.50;
+        precoPac = 9.90;
+    } else {
+        precoSedex = 45.90;
+        precoPac = 22.50;
+    }
+
+    containerFrete.innerHTML = `
+        <div class="form-check border rounded p-3 mb-2">
+            <input class="form-check-input" type="radio" name="frete" id="frete1" value="${precoPac}" onchange="atualizarFrete(this.value)" checked>
+            <label class="form-check-label d-flex justify-content-between w-100" for="frete1">
+                <span>Entrega Normal (PAC) - até 10 dias</span>
+                <b>R$ ${precoPac.toFixed(2).replace(".", ",")}</b>
+            </label>
+        </div>
+        <div class="form-check border rounded p-3">
+            <input class="form-check-input" type="radio" name="frete" id="frete2" value="${precoSedex}" onchange="atualizarFrete(this.value)">
+            <label class="form-check-label d-flex justify-content-between w-100" for="frete2">
+                <span>Entrega Expressa (Sedex) - até 3 dias</span>
+                <b>R$ ${precoSedex.toFixed(2).replace(".", ",")}</b>
+            </label>
+        </div>
+    `;
+
+    // Já seleciona o primeiro frete e atualiza o total
+    atualizarFrete(precoPac);
+}
+
+function atualizarFrete(valor) {
+    valorFreteSelecionado = parseFloat(valor);
+    document.getElementById("resumo-frete").innerText = "R$ " + valorFreteSelecionado.toFixed(2).replace(".", ",");
+    document.getElementById("resumo-frete").classList.add("text-success");
+    
+    // Recalcula o total geral
+    carregarCheckout(); 
+}
+
+function atualizarTotalFinal(subtotal) {
+    const total = subtotal + valorFreteSelecionado;
+    document.getElementById("resumo-total").innerText = "R$ " + total.toFixed(2).replace(".", ",");
+}
+
+function finalizarPedidoReal() {
+    const endereco = document.getElementById("endereco").value;
+    const numero = document.getElementById("numero").value;
+
+    if (!endereco || !numero) {
+        alert("Por favor, preencha o endereço de entrega e o número.");
+        return;
+    }
+
+    alert("SUCESSO! Seu pedido foi realizado.\nObrigado por comprar na Livraria!");
+    
+    // Limpa o carrinho e volta pra home
+    localStorage.removeItem("carrinho");
+    window.location.href = "index.html";
+}
+
+// =========================================================================
+// 12. INICIALIZAÇÃO
 // =========================================================================
 document.addEventListener("DOMContentLoaded", () => {
     carregarNavbar();
@@ -559,6 +722,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (document.getElementById("form-cadastro")) {
         configurarCadastro();
+    }
+
+    if (document.getElementById("form-checkout")) {
+        carregarCheckout();
     }
 
     // Pequeno atraso para garantir que a Navbar carregou antes de buscar o badge

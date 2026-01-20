@@ -227,6 +227,71 @@ footer {
     overflow: hidden;
 }
 
+/* =========================================
+   ESTILIZAÇÃO DO FOOTER
+   ========================================= */
+
+/* Fundo Cinza Suave (em vez de preto total) */
+.footer-custom {
+    background-color: #2c2c2c; /* Cinza escuro elegante */
+    color: #b0b0b0; /* Texto cinza claro para leitura confortável */
+    font-size: 0.95rem; /* Tamanho base */
+}
+
+/* Títulos das colunas */
+.footer-custom b, 
+.footer-custom h5 {
+    color: #ffffff; /* Títulos em branco para destaque */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+/* Links do Footer */
+.footer-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    display: block; /* Faz cada link ocupar uma linha */
+    margin-bottom: 10px;
+    transition: all 0.3s ease; /* Suaviza a animação */
+}
+
+/* Efeito Hover (Ao passar o mouse) */
+.footer-link:hover {
+    color: #ffc107; /* Muda para amarelo (cor do tema) */
+    text-decoration: none;
+    padding-left: 8px; /* Move levemente para a direita */
+}
+
+/* Links de contato (email e tel) que não devem mover, só mudar de cor */
+.footer-contact a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-contact a:hover {
+    color: #ffc107;
+}
+
+/* Linha divisória mais suave */
+.footer-divider {
+    border-top: 1px solid #444; /* Cinza médio */
+}
+
+/* =========================================
+   RESPONSIVIDADE (Telas Grandes)
+   ========================================= */
+@media (min-width: 992px) {
+    .footer-custom {
+        font-size: 1.1rem; /* Aumenta a fonte em computadores */
+    }
+    
+    .footer-custom h5, 
+    .footer-custom b {
+        font-size: 1.25rem; /* Aumenta os títulos */
+    }
+}
 @media screen and (max-width: 1150px) {
     #search {
         display: none;
