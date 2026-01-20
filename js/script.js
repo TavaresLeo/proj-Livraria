@@ -61,7 +61,7 @@ const livros = [
 ];
 
 // =========================================================================
-// 2. COMPONENTES (Navbar e Footer)
+// 2. COMPONENTES (Navbar e Footer) - VERSÃO FINAL DE LAYOUT
 // =========================================================================
 function carregarNavbar() {
     const navbarContainer = document.getElementById("navbar-placeholder");
@@ -78,32 +78,39 @@ function carregarNavbar() {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#">Lançamentos</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="nossas_lojas.html">Nossas Lojas</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="fale_conosco.html">Contato</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="sobre_livraria.html">Sobre</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Lançamentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="nossas_lojas.html">Nossas Lojas</a></li>
+                        <li class="nav-item"><a class="nav-link" href="fale_conosco.html">Contato</a></li>
+                        <li class="nav-item"><a class="nav-link" href="sobre_livraria.html">Sobre</a></li>
                     </ul>
 
-                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-3">
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-4 ms-lg-5 mt-3 mt-lg-0">
                         
                         <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Buscar livro..." aria-label="Search">
-                            <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+                            <input class="form-control form-control-search me-2" type="search" placeholder="O que você procura?" aria-label="Search">
+                            <button class="btn btn-outline-dark border-0" type="submit">
+                                <i class="bi bi-search fs-5"></i>
+                            </button>
                         </form>
 
-                        <div class="d-flex align-items-center gap-3 ms-lg-2">
+                        <div class="d-flex align-items-center gap-4">
+                            
                             <a href="login.html" class="text-dark fs-4" title="Login">
-                                <i class="bi bi-person-circle"></i>
+                                <i class="bi bi-person-circle" style="font-size: 1.6rem;"></i>
                             </a>
                             
                             <div class="position-relative">
-                                <a href="carrinho.html" class="text-dark fs-4" title="Carrinho"><i class="bi bi-cart3"></i></a>
+                                <a href="carrinho.html" class="text-dark fs-4" title="Carrinho">
+                                    <i class="bi bi-cart3" style="font-size: 1.6rem;"></i>
+                                </a>
                                 <span id="contador-carrinho" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;"></span>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </nav>
@@ -111,7 +118,6 @@ function carregarNavbar() {
         destacarPaginaAtual();
     }
 }
-
 // =========================================================================
 // 3. FUNÇÃO DO FOOTER (Rodapé)
 // =========================================================================
@@ -183,7 +189,7 @@ function carregarProdutos() {
 
     livros.forEach(livro => {
         htmlContent += `
-        <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+        <div class="col-6 col-md4 col-lg-3">
             <div class="card text-center bg-light h-100 shadow-sm hover-card position-relative">
                 <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
                     <a href="produto.html?id=${livro.id}" class="d-block">
@@ -449,7 +455,8 @@ function destacarPaginaAtual() {
         const linkPath = link.getAttribute('href');
         if (linkPath === currentPath || (currentPath === "" && linkPath === "index.html")) {
             link.classList.add('active');
-            link.style.textDecoration = 'underline';
+        } else {
+            link.classList.remove('active');
         }
     });
 }

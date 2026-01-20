@@ -227,6 +227,76 @@ footer {
     overflow: hidden;
 }
 
+/* /* =========================================
+   ESTILO DOS CARDS DE PRODUTO (Animação)
+   ========================================= */
+
+/* Define a transição suave para o estado normal */
+.hover-card {
+    transition: all 0.3s ease-in-out;
+    z-index: 1; /* Z-index base */
+}
+
+/* Quando passar o mouse (desktop) ou tocar (mobile) */
+.hover-card:hover,
+.hover-card:active {
+    transform: scale(1.05); /* Cresce 5% */
+    z-index: 10; /* Traz para frente de outros elementos */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important; /* Sombra mais forte para dar profundidade */
+    cursor: pointer;
+}
+
+/* Ajuste fino para imagens dentro dos cards não esticarem */
+.card-img-top {
+    object-fit: contain;
+} */
+
+
+/* =========================================
+   AJUSTES FINAIS DA NAVBAR
+   ========================================= */
+
+#navbar .container {
+    max-width: 1400px; /* Permite que a navbar use mais espaço da tela */
+}
+
+/* 1. LINKS DO MENU (Esquerda) */
+.navbar-nav .nav-link {
+    color: #000 !important;
+    padding: 8px 15px;
+    margin-right: 20px; /* Aumenta o espaçamento entre os itens */
+    border-radius: 5px;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Removemos qualquer estilo fixo para o link "Ativo" */
+.navbar-nav .nav-link.active {
+    background-color: transparent !important;
+    font-weight: normal !important;
+}
+
+/* Mantemos apenas o efeito ao passar o mouse */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Amarelo clarinho */
+}
+
+/* 2. BARRA DE PESQUISA (+20% de tamanho) */
+.form-control-search {
+    width: 350px !important; /* Força uma largura maior */
+    padding: 10px 15px; /* Aumenta a altura interna */
+    font-size: 1.05rem;
+}
+
+/* Ajuste da pesquisa para celular (ocupar tudo) */
+@media (max-width: 991px) {
+    .form-control-search {
+        width: 100% !important;
+    }
+    .navbar-nav .nav-link {
+        margin-right: 0; /* Remove margem lateral no mobile */
+    }
+}
 /* =========================================
    ESTILIZAÇÃO DO FOOTER
    ========================================= */
@@ -277,30 +347,6 @@ footer {
 /* Linha divisória mais suave */
 .footer-divider {
     border-top: 1px solid #444; /* Cinza médio */
-}
-
-/* =========================================
-   AJUSTES DA NAVBAR
-   ========================================= */
-
-/* Centralizar o conteúdo da navbar (limita a largura em telas grandes) */
-#navbar .container {
-    max-width: 1200px; /* Ajuste este valor se quiser mais ou menos largo */
-}
-
-/* Estilo dos links da Navbar */
-.navbar-nav .nav-link {
-    color: #000 !important; /* Texto preto para contraste */
-    padding: 8px 15px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-/* Efeito Hover (Amarelo mais leve/Branco transparente) */
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link.active {
-    background-color: rgba(255, 255, 255, 0.4); /* Cria um amarelo mais claro */
-    font-weight: bold;
 }
 
 /* =========================================
