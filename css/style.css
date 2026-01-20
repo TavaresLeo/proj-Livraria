@@ -82,6 +82,136 @@ footer {
     align-items: center;
     width: 100%;
 }
+/* Efeito suave ao passar o mouse no card */
+.hover-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: translateY(-5px); /* Sobe um pouquinho */
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; /* Sombra mais forte */
+}
+
+/* Garante que descrições longas não quebrem o card (limita a 3 linhas) */
+.truncar-3l {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* /* =========================================
+   ESTILO DOS CARDS DE PRODUTO (Animação)
+   ========================================= */
+
+/* Define a transição suave para o estado normal */
+.hover-card {
+    transition: all 0.3s ease-in-out;
+    z-index: 1; /* Z-index base */
+}
+
+/* Quando passar o mouse (desktop) ou tocar (mobile) */
+.hover-card:hover,
+.hover-card:active {
+    transform: scale(1.05); /* Cresce 5% */
+    z-index: 10; /* Traz para frente de outros elementos */
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important; /* Sombra mais forte para dar profundidade */
+    cursor: pointer;
+}
+
+/* Ajuste fino para imagens dentro dos cards não esticarem */
+.card-img-top {
+    object-fit: contain;
+} */
+
+
+/* =========================================
+   AJUSTES FINAIS DA NAVBAR
+   ========================================= */
+
+#navbar .container {
+    max-width: 1400px; /* Permite que a navbar use mais espaço da tela */
+}
+
+/* 1. LINKS DO MENU (Esquerda) */
+.navbar-nav .nav-link {
+    color: #000 !important;
+    padding: 8px 15px;
+    margin-right: 20px; /* Aumenta o espaçamento entre os itens */
+    border-radius: 5px;
+    text-decoration: none !important;
+    transition: background-color 0.3s ease;
+}
+
+/* Removemos qualquer estilo fixo para o link "Ativo" */
+.navbar-nav .nav-link.active {
+    background-color: transparent !important;
+    font-weight: normal !important;
+}
+
+/* Mantemos apenas o efeito ao passar o mouse */
+.navbar-nav .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.5); /* Amarelo clarinho */
+}
+
+/* 2. BARRA DE PESQUISA (+20% de tamanho) */
+.form-control-search {
+    width: 350px !important; /* Força uma largura maior */
+    padding: 10px 15px; /* Aumenta a altura interna */
+    font-size: 1.05rem;
+}
+
+/* =========================================
+   ESTILIZAÇÃO DO FOOTER
+   ========================================= */
+
+/* Fundo Cinza Suave (em vez de preto total) */
+.footer-custom {
+    background-color: #2c2c2c; /* Cinza escuro elegante */
+    color: #b0b0b0; /* Texto cinza claro para leitura confortável */
+    font-size: 0.95rem; /* Tamanho base */
+}
+
+/* Títulos das colunas */
+.footer-custom b, 
+.footer-custom h5 {
+    color: #ffffff; /* Títulos em branco para destaque */
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+/* Links do Footer */
+.footer-link {
+    color: #b0b0b0;
+    text-decoration: none;
+    display: block; /* Faz cada link ocupar uma linha */
+    margin-bottom: 10px;
+    transition: all 0.3s ease; /* Suaviza a animação */
+}
+
+/* Efeito Hover (Ao passar o mouse) */
+.footer-link:hover {
+    color: #ffc107; /* Muda para amarelo (cor do tema) */
+    text-decoration: none;
+    padding-left: 8px; /* Move levemente para a direita */
+}
+
+/* Links de contato (email e tel) que não devem mover, só mudar de cor */
+.footer-contact a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.footer-contact a:hover {
+    color: #ffc107;
+}
+
+/* Linha divisória mais suave */
+.footer-divider {
+    border-top: 1px solid #444; /* Cinza médio */
+}
 
 @media  screen and (max-width:472px) {
 
@@ -209,84 +339,7 @@ footer {
     }
 
 }
-/* Efeito suave ao passar o mouse no card */
-.hover-card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.hover-card:hover {
-    transform: translateY(-5px); /* Sobe um pouquinho */
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; /* Sombra mais forte */
-}
-
-/* Garante que descrições longas não quebrem o card (limita a 3 linhas) */
-.truncar-3l {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* /* =========================================
-   ESTILO DOS CARDS DE PRODUTO (Animação)
-   ========================================= */
-
-/* Define a transição suave para o estado normal */
-.hover-card {
-    transition: all 0.3s ease-in-out;
-    z-index: 1; /* Z-index base */
-}
-
-/* Quando passar o mouse (desktop) ou tocar (mobile) */
-.hover-card:hover,
-.hover-card:active {
-    transform: scale(1.05); /* Cresce 5% */
-    z-index: 10; /* Traz para frente de outros elementos */
-    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important; /* Sombra mais forte para dar profundidade */
-    cursor: pointer;
-}
-
-/* Ajuste fino para imagens dentro dos cards não esticarem */
-.card-img-top {
-    object-fit: contain;
-} */
-
-
-/* =========================================
-   AJUSTES FINAIS DA NAVBAR
-   ========================================= */
-
-#navbar .container {
-    max-width: 1400px; /* Permite que a navbar use mais espaço da tela */
-}
-
-/* 1. LINKS DO MENU (Esquerda) */
-.navbar-nav .nav-link {
-    color: #000 !important;
-    padding: 8px 15px;
-    margin-right: 20px; /* Aumenta o espaçamento entre os itens */
-    border-radius: 5px;
-    text-decoration: none !important;
-    transition: background-color 0.3s ease;
-}
-
-/* Removemos qualquer estilo fixo para o link "Ativo" */
-.navbar-nav .nav-link.active {
-    background-color: transparent !important;
-    font-weight: normal !important;
-}
-
-/* Mantemos apenas o efeito ao passar o mouse */
-.navbar-nav .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.5); /* Amarelo clarinho */
-}
-
-/* 2. BARRA DE PESQUISA (+20% de tamanho) */
-.form-control-search {
-    width: 350px !important; /* Força uma largura maior */
-    padding: 10px 15px; /* Aumenta a altura interna */
-    font-size: 1.05rem;
-}
 
 /* Ajuste da pesquisa para celular (ocupar tudo) */
 @media (max-width: 991px) {
@@ -297,57 +350,7 @@ footer {
         margin-right: 0; /* Remove margem lateral no mobile */
     }
 }
-/* =========================================
-   ESTILIZAÇÃO DO FOOTER
-   ========================================= */
 
-/* Fundo Cinza Suave (em vez de preto total) */
-.footer-custom {
-    background-color: #2c2c2c; /* Cinza escuro elegante */
-    color: #b0b0b0; /* Texto cinza claro para leitura confortável */
-    font-size: 0.95rem; /* Tamanho base */
-}
-
-/* Títulos das colunas */
-.footer-custom b, 
-.footer-custom h5 {
-    color: #ffffff; /* Títulos em branco para destaque */
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    display: block;
-    letter-spacing: 0.5px;
-}
-
-/* Links do Footer */
-.footer-link {
-    color: #b0b0b0;
-    text-decoration: none;
-    display: block; /* Faz cada link ocupar uma linha */
-    margin-bottom: 10px;
-    transition: all 0.3s ease; /* Suaviza a animação */
-}
-
-/* Efeito Hover (Ao passar o mouse) */
-.footer-link:hover {
-    color: #ffc107; /* Muda para amarelo (cor do tema) */
-    text-decoration: none;
-    padding-left: 8px; /* Move levemente para a direita */
-}
-
-/* Links de contato (email e tel) que não devem mover, só mudar de cor */
-.footer-contact a {
-    color: #b0b0b0;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-.footer-contact a:hover {
-    color: #ffc107;
-}
-
-/* Linha divisória mais suave */
-.footer-divider {
-    border-top: 1px solid #444; /* Cinza médio */
-}
 
 /* =========================================
    RESPONSIVIDADE (Telas Grandes)
