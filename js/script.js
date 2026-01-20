@@ -267,11 +267,7 @@ function carregarCarrinho() {
     const carrinhoIds = JSON.parse(localStorage.getItem('carrinho')) || [];
     
     if (carrinhoIds.length === 0) {
-        container.innerHTML = `
-            <div class="alert alert-warning text-center py-5">
-                <h4>Seu carrinho está vazio :(</h4>
-                <a href="index.html" class="btn btn-dark mt-3">Ir as compras</a>
-            </div>`;
+        container.innerHTML = `<div class="alert alert-warning text-center">Seu carrinho está vazio :(</div>`;
         atualizarTotais(0);
         return;
     }
@@ -280,41 +276,40 @@ function carregarCarrinho() {
     let totalGeral = 0;
 
     carrinhoIds.forEach(item => {
-        const livroCompleto = livros.find(l => l.id == item.id);
-        
-        if (livroCompleto) {
-            const precoNumerico = parseFloat(livroCompleto.preco.replace("R$", "").replace(",", ".").trim());
-            const subtotalItem = precoNumerico * item.quantidade;
-            totalGeral += subtotalItem;
+        const livro = livros.find(l => l.id == item.id);
+        if (livro) {
+            const preco = parseFloat(livro.preco.replace("R$", "").replace(",", ".").trim());
+            totalGeral += preco * item.quantidade;
 
             htmlItens += `
-            <div class="card border shadow-sm mb-3">
+            <div class="card mb-3 shadow-sm">
                 <div class="card-body">
-                    <div class="row align-items-center">
-                        <div class="col-3 col-md-2">
-                            <img src="${livroCompleto.imagem}" class="img-fluid rounded" alt="${livroCompleto.titulo}">
-                        </div>
-                        <div class="col-9 col-md-4">
-                            <h6 class="fw-bold mb-1">${livroCompleto.titulo}</h6>
-                            <small class="text-muted">Unitário: ${livroCompleto.preco}</small>
-                        </div>
-                        <div class="col-6 col-md-3 mt-3 mt-md-0">
-                            <div class="input-group input-group-sm">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control text-center" value="${item.quantidade}" readonly>
-                                <button class="btn btn-outline-secondary" type="button">+</button>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="${livro.imagem}" width="60" class="rounded">
+                            <div>
+                                <h6 class="mb-0">${livro.titulo}</h6>
+                                <small class="text-muted">Unitário: ${livro.preco}</small>
                             </div>
                         </div>
-                        <div class="col-6 col-md-3 mt-3 mt-md-0 text-end">
-                            <div class="fw-bold mb-2">R$ ${subtotalItem.toFixed(2).replace(".", ",")}</div>
-                            <button onclick="removerDoCarrinho(${item.id})" class="btn btn-sm btn-outline-danger border-0">
-                                <i class="bi bi-trash"></i> Remover
-                            </button>
+                        
+                        <div class="d-flex align-items-center gap-4">
+                            <div class="input-group input-group-sm" style="width: 100px;">
+                                <button onclick="alterarQuantidade(${item.id}, -1)" class="btn btn-outline-secondary" type="button">-</button>
+                                <input type="text" class="form-control text-center" value="${item.quantidade}" readonly>
+                                <button onclick="alterarQuantidade(${item.id}, 1)" class="btn btn-outline-secondary" type="button">+</button>
+                            </div>
+
+                            <div class="text-end" style="min-width: 80px;">
+                                <div class="fw-bold text-success mb-1">R$ ${(preco * item.quantidade).toFixed(2).replace(".", ",")}</div>
+                                <button onclick="removerDoCarrinho(${item.id})" class="btn btn-sm btn-link text-danger text-decoration-none p-0">
+                                    <small>Remover</small>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            `;
+            </div>`;
         }
     });
 
@@ -353,6 +348,30 @@ function adicionarAoCarrinho(idLivro) {
     atualizarBadgeCarrinho();
     
     alert("Produto adicionado ao carrinho!");
+}
+
+// Função para aumentar ou diminuir quantidade
+function alterarQuantidade(id, mudanca) {
+    // 1. Pega o carrinho
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    
+    // 2. Encontra o item que foi clicado
+    const item = carrinho.find(i => i.id === id);
+
+    if (item) {
+        // 3. Altera a quantidade
+        item.quantidade += mudanca;
+
+        // 4. Bloqueio de segurança: Não deixa baixar de 1
+        if (item.quantidade < 1) {
+            item.quantidade = 1;
+        }
+    }
+
+    // 5. Salva e recarrega a tela
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+    carregarCarrinho(); // Recalcula totais e redesenha a tela
+    atualizarBadgeCarrinho(); // Atualiza o número no topo
 }
 
 function removerDoCarrinho(id) {
@@ -541,7 +560,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.getElementById("form-cadastro")) {
         configurarCadastro();
     }
-    
+
     // Pequeno atraso para garantir que a Navbar carregou antes de buscar o badge
     setTimeout(() => {
         atualizarBadgeCarrinho();
