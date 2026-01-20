@@ -280,6 +280,30 @@ footer {
 }
 
 /* =========================================
+   AJUSTES DA NAVBAR
+   ========================================= */
+
+/* Centralizar o conteúdo da navbar (limita a largura em telas grandes) */
+#navbar .container {
+    max-width: 1200px; /* Ajuste este valor se quiser mais ou menos largo */
+}
+
+/* Estilo dos links da Navbar */
+.navbar-nav .nav-link {
+    color: #000 !important; /* Texto preto para contraste */
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito Hover (Amarelo mais leve/Branco transparente) */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.4); /* Cria um amarelo mais claro */
+    font-weight: bold;
+}
+
+/* =========================================
    RESPONSIVIDADE (Telas Grandes)
    ========================================= */
 @media (min-width: 992px) {

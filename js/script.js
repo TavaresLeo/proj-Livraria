@@ -61,21 +61,15 @@ const livros = [
 ];
 
 // =========================================================================
-// 2. FUNÇÃO DA NAVBAR (Cabeçalho)
+// 2. COMPONENTES (Navbar e Footer)
 // =========================================================================
 function carregarNavbar() {
     const navbarContainer = document.getElementById("navbar-placeholder");
 
     if (navbarContainer) {
         navbarContainer.innerHTML = `
-        <header class="py-1 bg-dark">
-            <h6 class="text-center text-light pt-2" style="font-size: 0.9rem;">
-                Aceitamos todas as formas de pagamento: Pix, Crédito, Débito
-            </h6>
-        </header>
         <nav class="navbar navbar-expand-lg bg-warning py-3 shadow-sm" id="navbar">
-            <div class="container-fluid">
-                <a class="navbar-brand text-light ps-4 fs-3" href="index.html"><b>Livraria</b></a>
+            <div class="container">
                 
                 <button class="navbar-toggler bg-light border-0" type="button" 
                     data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -84,29 +78,31 @@ function carregarNavbar() {
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-3">
-                        <li class="nav-item"><a class="nav-link text-light fw-bold" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-light fw-bold" href="#">Lançamentos</a></li>
-                        <li class="nav-item"><a class="nav-link text-light fw-bold" href="nossas_lojas.html">Nossas Lojas</a></li>
-                        <li class="nav-item"><a class="nav-link text-light fw-bold" href="fale_conosco.html">Contato</a></li>
-                         <li class="nav-item"><a class="nav-link text-light fw-bold" href="sobre_livraria.html">Sobre</a></li>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link fw-bold" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="#">Lançamentos</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="nossas_lojas.html">Nossas Lojas</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="fale_conosco.html">Contato</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="sobre_livraria.html">Sobre</a></li>
                     </ul>
-                </div>
-                
-                <div class="d-none d-lg-flex ms-auto me-3">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar livro..." aria-label="Search">
-                        <button class="btn btn-outline-light text-dark" type="submit">Buscar</button>
-                    </form>
-                </div>
 
-                <div class="d-flex align-items-center me-4 mt-2 mt-lg-0">
-                    <a href="login.html" class="text-white me-3 fs-4" title="Login"><i class="bi bi-person-circle"></i></a>
-                    
-                    <div class="position-relative">
-                        <a href="carrinho.html" class="text-white fs-4" title="Carrinho"><i class="bi bi-cart3"></i></a>
-                        <span id="contador-carrinho" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;">
-                        </span>
+                    <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-3">
+                        
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar livro..." aria-label="Search">
+                            <button class="btn btn-outline-dark" type="submit"><i class="bi bi-search"></i></button>
+                        </form>
+
+                        <div class="d-flex align-items-center gap-3 ms-lg-2">
+                            <a href="login.html" class="text-dark fs-4" title="Login">
+                                <i class="bi bi-person-circle"></i>
+                            </a>
+                            
+                            <div class="position-relative">
+                                <a href="carrinho.html" class="text-dark fs-4" title="Carrinho"><i class="bi bi-cart3"></i></a>
+                                <span id="contador-carrinho" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.7rem; display: none;"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
